@@ -1,0 +1,8 @@
+{
+  "headlines": [
+    "Java Full Stack Developer | AWS Serverless & Data Migration (Redshift to PostgreSQL) | Spring Boot, React | 2+ yrs",
+    "Java + AWS Developer | Step Functions, Lambda, Glue, PySpark | Spring Boot, Microservices, React | 2+ yrs"
+  ],
+  "upload_resume_every_n_days": 3,
+  "resume_path": "resume/resume.pdf"
+}
