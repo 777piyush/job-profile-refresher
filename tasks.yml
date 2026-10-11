@@ -1,0 +1,61 @@
+# ===== YOUR TO-DO LIST FOR NAUKRI =====
+# Edit this file on GitHub (pencil icon) any time. Steps run top to bottom.
+# Set enabled: false to skip a step. Keep the spaces at the start of lines exactly as they are.
+#
+# SAFE START: dry_run is true, so the script fills the forms, takes screenshots,
+# and does NOT click Save. Check the screenshots, then change it to false.
+# CTC / salary is never touched by this script.
+
+settings:
+  dry_run: true
+
+tasks:
+  - action: update_headline
+    enabled: true
+    # One headline is picked per day, rotating through this list (max 250 characters each)
+    values:
+      - "Java Full Stack Developer | AWS Serverless & Data Migration (Redshift to PostgreSQL) | Spring Boot, React | 2+ yrs"
+      - "Java + AWS Developer | Step Functions, Lambda, Glue, PySpark | Spring Boot, Microservices, React | 2+ yrs"
+
+  - action: update_summary
+    enabled: true
+    # Max 1000 characters. Edit anything that is not true for you.
+    value: >-
+      Java Full Stack Developer with 2+ years of experience building Spring Boot and React applications
+      and AWS serverless data pipelines at Hexaware Technologies. Built a Redshift to PostgreSQL migration
+      framework using AWS Step Functions, Lambda and Glue, moving tables of 30-40 million records with
+      CDC-based incremental loads, partitioning, indexing and PostgreSQL tuning. Built Java Spring Boot APIs
+      that trigger and control AWS Step Functions, reducing direct console access in production.
+      Two-time Trailblazer Award winner (2024, 2025). Skills: Java, Spring Boot, Spring Security,
+      Hibernate, JPA, REST APIs, Microservices, React, JavaScript, AWS (Lambda, Step Functions, Glue, S3,
+      Secrets Manager), Redshift, PostgreSQL, PySpark, SQL, ETL, Data Migration. Open to Java Backend,
+      Java Full Stack and AWS Data Engineer roles.
+
+  - action: update_skills
+    enabled: true
+    # Experimental: the skills box is the least tested step. Check its screenshot first.
+    add:
+      - Java
+      - Spring Boot
+      - Microservices
+      - REST API
+      - Hibernate
+      - JPA
+      - Spring Security
+      - React.js
+      - JavaScript
+      - AWS
+      - AWS Lambda
+      - AWS Glue
+      - AWS Step Functions
+      - Amazon S3
+      - Redshift
+      - PostgreSQL
+      - PySpark
+      - SQL
+      - ETL
+      - Data Migration
+
+  - action: upload_resume
+    enabled: true
+    file: resume/resume.pdf

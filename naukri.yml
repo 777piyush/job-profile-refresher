@@ -1,0 +1,27 @@
+name: Naukri automation
+on:
+  schedule:
+    - cron: "30 3 * * *"
+  workflow_dispatch:
+jobs:
+  run:
+    # Runs on YOUR Mac via a self-hosted runner (Naukri blocks GitHub's own servers).
+    runs-on: self-hosted
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Naukri tasks
+        env:
+          NAUKRI_EMAIL: ${{ secrets.NAUKRI_EMAIL }}
+          NAUKRI_PASSWORD: ${{ secrets.NAUKRI_PASSWORD }}
+        run: |
+          python3 -m venv .venv
+          . .venv/bin/activate
+          pip install -q -r requirements.txt
+          playwright install chromium
+          python naukri_refresh.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots
+          path: artifacts/
