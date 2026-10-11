@@ -126,8 +126,10 @@ def main():
 
     results = []
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=os.getenv("HEADLESS", "1") != "0")
-        ctx = browser.new_context(viewport={"width": 1366, "height": 800}, locale="en-IN", timezone_id="Asia/Kolkata")
+        browser = p.chromium.launch(headless=os.getenv("HEADLESS", "1") != "0", args=["--disable-blink-features=AutomationControlled"])
+        ctx = browser.new_context(viewport={"width": 1366, "height": 800}, locale="en-IN", timezone_id="Asia/Kolkata",
+            user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36")
+        ctx.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
         page = ctx.new_page()
         page.on("dialog", lambda d: d.accept())
         try:
