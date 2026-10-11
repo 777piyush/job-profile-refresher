@@ -1,4 +1,4 @@
-name: Naukri daily refresh
+name: Naukri automation
 on: { schedule: [ { cron: "30 3 * * *" } ], workflow_dispatch: {} }
 jobs:
   run:
